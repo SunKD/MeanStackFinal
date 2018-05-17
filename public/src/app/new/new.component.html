@@ -1,0 +1,100 @@
+<div class="row text-center">
+    <div class="col-md-12">
+      <h3>Know of a pet needing a home? </h3>
+    </div>
+  </div>
+  <div class="row">
+    <span [hidden]="!errors.name" class="text-danger">*{{errors.name.message}}</span>
+  </div>
+  <div class="row form">
+    <div class="col-md-3 col-1"></div>
+    <div class="col-md-6 col-10">
+      <div class="box text-center">
+        <form (submit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-12 text-left">
+              <label>Pet Name:</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="text" required minlength="3" name="newPet.name" [(ngModel)]="newPet.name" #name="ngModel" class="form-control">
+              <!-- <span [hidden]="!errors.name || name.valid" class="text-danger">{{errors.name.message}}</span> -->
+            </div>
+          </div>
+          <div class="row">
+            <div *ngIf="name.invalid && (name.dirty || !name.untouched)" class="col-md-12 alert alert-danger">
+              <div *ngIf="name.errors.required">Name is required!</div>
+              <div *ngIf="name.errors.minlength">Name must be at least 3 charaters long</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-left">
+              <label>Pet type:</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="text" required minlength="3" name="newPet.petType" [(ngModel)]="newPet.petType" #pettype="ngModel" class="form-control">
+              <!-- <span [hidden]="!errors.pettype || pettype.valid" class="text-danger">{{errors.pettype.message}}</span> -->
+            </div>
+          </div>
+          <div class="row">
+            <div *ngIf="pettype.invalid && (pettype.dirty || !pettype.untouched)" class="col-md-12 alert alert-danger">
+              <div *ngIf="pettype.errors.required">Type is required!</div>
+              <div *ngIf="pettype.errors.minlength">Type must be at least 3 charaters long</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-left">
+              <label>Description:</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="text" required minlength="3" name="newPet.description" [(ngModel)]="newPet.description" #description="ngModel"
+                class="form-control">
+              <!-- <span [hidden]="!errors.description || description.valid" class="text-danger">{{errors.description.message}}</span> -->
+            </div>
+          </div>
+          <div class="row">
+            <div *ngIf="description.invalid && (description.dirty || !description.untouched)" class="col-md-12 alert alert-danger">
+              <div *ngIf="description.errors.required">Description is required!</div>
+              <div *ngIf="description.errors.minlength">Description must be at least 3 charaters long</div>
+            </div>
+          </div>
+          <div class="row text-left">
+            <div class="col-md-12">Skills (optional): </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Skill1: </div>
+            <div class="col-md-10">
+              <input type="text" name="skill1" class="form-control" [(ngModel)]="skill1">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Skill2: </div>
+            <div class="col-md-10">
+              <input type="text" name="skill2" class="form-control" [(ngModel)]="skill2">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Skill3: </div>
+            <div class="col-md-10">
+              <input type="text" name="skill3" class="form-control" [(ngModel)]="skill3">
+            </div>
+          </div>
+          <div class="row buttons">
+            <div class="col-md-6">
+              <input type="submit" class="btn btn-success form-control" [disabled]="!name.valid" value="submit">
+            </div>
+            <div class="col-md-6">
+              <button [routerLink]="['/']" class="btn btn-danger form-control">Cancel</button>
+  
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3 col-1"></div>
+  </div>

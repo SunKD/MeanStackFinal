@@ -1,0 +1,53 @@
+<div *ngIf="thisPet">
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-2">
+        <button [routerLink]="['/']" class="btn btn-outline-success form-control">Home</button>
+      </div>
+      <!-- <div class="col-md-2">
+        <a [routerLink]="['/newquote/', thisAuthor._id]" class="btn btn-outline-success form-control">Add a quote</a>
+      </div> -->
+      <div class="col-md-4"></div>
+    </div>
+  
+    <h3>Details about {{thisPet.name}} </h3>
+    <div class="row">
+      <div class="col-md-3 col-6 text-center">
+        <h4>Pet type:</h4>
+      </div>
+      <div class="col-md-9 col-6">
+        {{thisPet.petType}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-6 text-center">
+        <h4>Description:</h4>
+      </div>
+      <div class="col-md-9 col-6">
+        {{thisPet.description}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-6 text-center">
+        <h4>Skills:</h4>
+      </div>
+      <div class="col-md-9 col-6">
+        <div *ngFor="let skill of thisPet.skills">
+          <p *ngIf="skill">{{skill}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-6 text-center">
+        <h4>Likes:</h4>
+      </div>
+      <div class="col-md-9 col-6">
+        {{thisPet.likes}}
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3 col-6"><button onclick="this.disabled=true" (click)="like(thisPet._id)" class="btn btn-success">Like this Pet</button></div>
+      <div class="col-md-3 col-6"><button (click)="delete()" class="btn btn-primary">Adopt this Pet!</button></div>
+    </div>
+    
+  
